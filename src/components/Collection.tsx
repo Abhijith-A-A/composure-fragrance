@@ -14,7 +14,7 @@ const products = [
     notes: 'Bergamot · Iris · Sandalwood',
     honestNotes: 'Denial · Pre-meeting dread · Quiet screaming',
     color: '#D4A55A',
-    image: '/products/still.png',
+    image: import.meta.env.BASE_URL + 'products/still.png',
     trollType: 'normal', // Trust builder
   },
   {
@@ -24,7 +24,7 @@ const products = [
     notes: 'Green Tea · White Cedar · Vetiver',
     honestNotes: 'Inbox Zero (aspirational) · Cold coffee · "Per my last email"',
     color: '#C48B9F',
-    image: '/products/unread.png',
+    image: import.meta.env.BASE_URL + 'products/unread.png',
     trollType: 'tremble', // Trembles, then jumps
   },
   {
@@ -34,7 +34,7 @@ const products = [
     notes: 'Pink Pepper · Jasmine · Amber',
     honestNotes: 'Nearly on time · Optimism · Plot twist',
     color: '#7B9FC4',
-    image: '/products/almost.png',
+    image: import.meta.env.BASE_URL + 'products/almost.png',
     trollType: 'flee', // Actively runs away
   },
   {
@@ -44,7 +44,7 @@ const products = [
     notes: '[REDACTED] · [ERROR] · The Void',
     honestNotes: '??? · ¿¿¿ · ...',
     color: '#3A3A3A',
-    image: '/products/void.png',
+    image: import.meta.env.BASE_URL + 'products/void.png',
     trollType: 'teleport', // Teleports to random position
   },
 ]

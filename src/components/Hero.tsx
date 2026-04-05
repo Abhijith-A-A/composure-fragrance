@@ -45,7 +45,7 @@ export default function Hero() {
         resolve()
       }
       img.onerror = () => resolve() // Skip broken
-      img.src = `/frames/frame_${num}.jpg`
+      img.src = `${import.meta.env.BASE_URL}frames/frame_${num}.jpg`
     })
   }, [])
 
