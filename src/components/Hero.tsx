@@ -26,7 +26,6 @@ export default function Hero() {
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
   const canvasSizedRef = useRef(false)
   const [textStage, setTextStage] = useState(0)
-  const [loadProgress, setLoadProgress] = useState(0)
   const [loaded, setLoaded] = useState(false)
 
   // TROLL: Rebellious scroll — briefly shows wrong frame at 60%
@@ -41,7 +40,6 @@ export default function Hero() {
       img.onload = () => {
         framesRef.current[index] = img
         loadedCountRef.current++
-        setLoadProgress(Math.round((loadedCountRef.current / TOTAL_FRAMES) * 100))
         resolve()
       }
       img.onerror = () => resolve() // Skip broken
