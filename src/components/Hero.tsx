@@ -36,14 +36,16 @@ export default function Hero() {
     return new Promise((resolve) => {
       const num = String(index + 1).padStart(4, '0')
       const img = new Image()
-      img.decoding = 'async'
-      img.onload = () => {
+      img.src = `${import.meta.env.BASE_URL}frames/frame_${num}.jpg`
+      
+      img.decode().then(() => {
         framesRef.current[index] = img
         loadedCountRef.current++
         resolve()
-      }
-      img.onerror = () => resolve() // Skip broken
-      img.src = `${import.meta.env.BASE_URL}frames/frame_${num}.jpg`
+      }).catch(() => {
+        // Fallback if decode fails or frame gets skipped
+        resolve()
+      })
     })
   }, [])
 
@@ -171,8 +173,8 @@ export default function Hero() {
 
         const frameIndex = Math.floor(progress * (TOTAL_FRAMES - 1))
 
-        // Skip redraw if same frame (huge perf win)
-        if (frameIndex === lastFrame) return
+        // Skip redraw if same frame (huge perf win), but constantly redraw frame 0 to fix pure-black load bug
+        if (frameIndex === lastFrame && frameIndex !== 0) return
         lastFrame = frameIndex
 
         drawFrame(frameIndex)
