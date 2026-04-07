@@ -227,52 +227,6 @@ export default function Hero() {
         justifyContent: 'center',
         background: '#0A0A0A',
       }}>
-        {/* Loading indicator */}
-        {!loaded && (
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            zIndex: 10,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: '#0A0A0A',
-          }}>
-            <p style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: '1.2rem',
-              color: 'var(--accent-gold)',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              marginBottom: '24px',
-            }}>
-              COMPOSURE
-            </p>
-            <div style={{
-              width: '200px',
-              height: '2px',
-              background: 'rgba(196, 168, 130, 0.15)',
-              borderRadius: '1px',
-              overflow: 'hidden',
-            }}>
-              <div style={{
-                width: `${loadProgress}%`,
-                height: '100%',
-                background: 'var(--accent-gold)',
-                transition: 'width 0.1s linear',
-              }} />
-            </div>
-            <p style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.65rem',
-              color: 'var(--text-muted)',
-              marginTop: '12px',
-            }}>
-              Loading experience... {loadProgress}%
-            </p>
-          </div>
-        )}
 
         {/* Canvas — renders frames */}
         <canvas
